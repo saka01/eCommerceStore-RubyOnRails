@@ -10,7 +10,7 @@ RSpec.describe Product, type: :model do
     end
 
     context "create product without giving category" do
-      it "has error 'Category can't be blank'" do
+      it "does not save & has error 'Category can't be blank'" do
         @category = Category.new
         @product = Product.create(name: "chicken harness", price: 35, quantity: 30, category: nil)
         expect(Product.count).to eq(0)
@@ -19,7 +19,7 @@ RSpec.describe Product, type: :model do
     end
 
     context "create product without giving quantity" do
-      it "has error 'Quantity can't be blank'" do
+      it "does not save & has error 'Quantity can't be blank'" do
         @category = Category.new
         @product = Product.create(name: "chicken harness", price: 35, quantity: nil, category: @category)
         expect(Product.count).to eq(0)
@@ -28,7 +28,7 @@ RSpec.describe Product, type: :model do
     end
 
     context "create product without giving price" do
-      it "has error 'Price can't be blank'" do
+      it "does not save & has error 'Price can't be blank'" do
         @category = Category.new
         @product = Product.create(name: "chicken harness", price: nil, quantity: 30, category: @category)
         expect(Product.count).to eq(0)
@@ -37,7 +37,7 @@ RSpec.describe Product, type: :model do
     end
 
     context "create product without giving name" do
-      it "has error 'Name can't be blank'" do
+      it "does not save & has error 'Name can't be blank'" do
         @category = Category.new
         @product = Product.create(name: nil, price: 35, quantity: 30, category: @category)
         expect(Product.count).to eq(0)
